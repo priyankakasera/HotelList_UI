@@ -1,0 +1,52 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="host_name">
+    <th mat-header-cell *matHeaderCellDef> Host Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.host_name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="neighbourhood_group">
+    <th mat-header-cell *matHeaderCellDef> Neighbourhood Group </th>
+    <td mat-cell *matCellDef="let element"> {{element.neighbourhood_group}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="neighbourhood">
+    <th mat-header-cell *matHeaderCellDef> Neighbourhood </th>
+    <td mat-cell *matCellDef="let element"> {{element.neighbourhood}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="latitude">
+    <th mat-header-cell *matHeaderCellDef> Latitude </th>
+    <td mat-cell *matCellDef="let element"> {{element.latitude}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="longitude">
+    <th mat-header-cell *matHeaderCellDef> Longitude </th>
+    <td mat-cell *matCellDef="let element"> {{element.longitude}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="room_type">
+    <th mat-header-cell *matHeaderCellDef> Room Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.room_type}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -1,0 +1,32 @@
+<div class="common-textfield__container mt-3" [formGroup]="parent_FG">
+	<div class = "d-flex align-items-center justify-content-between">
+		<div class="common-textfield__label">
+		<label for="{{input_id}}">{{ label }}</label>
+	</div>
+		<button 
+		class="common-textfield__button" 
+		*ngIf="btn_cta"
+		(click)="performCTAAction($event)">
+			{{ btn_cta }}
+		</button>
+	</div>
+	<div class="common-textfield__input">
+		<mat-form-field floatLabel="never" appearance="fill">
+			<input matInput 
+			placeholder="{{ placeholder }}"
+			id = "{{input_id}}"
+			autocomplete="off"
+			[formControlName]="control_name"
+			[type]="type && hide ? type : 'text'"
+			required>
+			
+			<!-- <mat-error *ngIf="control.hasError('required')">
+				{{ required_error ? required_error : 'This field cannot be left blank' }}
+			</mat-error>
+			<mat-error *ngIf="control.hasError('message')">
+				 ERROR
+			</mat-error> -->
+		</mat-form-field>
+	</div>
+</div>
+

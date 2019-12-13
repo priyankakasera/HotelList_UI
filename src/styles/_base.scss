@@ -1,0 +1,229 @@
+.side-image{
+	background-image : url('/assets/images/side-image.jpg');
+	min-height : 100vh;
+	background-size : cover;
+	background-position : 50% 100%;
+}
+
+.logo{
+	img{
+		height : 160px;
+	}
+}
+
+.common-header{
+
+	.mat-tab-nav-bar{
+		background-color : map-get($colors,pink);
+		.mat-tab-links{
+			a{
+				&:hover{
+					text-decoration : none !important;
+					opacity : 1;
+				}
+			}
+
+			.mat-tab-link{
+				height : 60px;
+				width : 50%;
+				color : map-get($colors,white) !important;
+				font-weight : bold;
+				&.cdk-focused{
+					.mat-ripple-element{
+						left : 0px !important;
+						display : none;
+					}
+				}
+
+			}
+		}
+	}
+}
+
+
+.common-textfield__container{
+
+
+	.common-textfield__label{
+		font-size:13px;
+		text-transform:uppercase ; 
+		font-family: ToyotaRegular;
+		letter-spacing: 2px;
+	}
+
+	.common-textfield__button{
+		border : 0px;
+		background-color : map-get($colors,white);
+		font-size: 13px;
+		color: blue;
+		text-transform : capitalize;
+		font-size: 0.75rem;
+		font-family: ToyotaSemibold;
+		padding-bottom: 0.75em;
+		letter-spacing: 0.5px;
+		min-height : 0;
+		min-width : 0; 
+		padding: 0 0 0.75rem 0;
+		width: inherit;
+	}
+
+	.common-textfield__suffix{
+
+		.common-textfield__edit,.common-textfield__eye{
+			min-height : 0;
+			min-width : 0; 
+			width: inherit;
+			background: none;
+			padding : 0px;
+		}
+
+		.common-textfield__notification{
+			color : #d43900;
+		}
+	}
+
+
+
+	.mat-form-field{
+		width : 100%;
+		line-height : normal;
+		.mat-form-field-flex{
+			padding : 0px;
+			padding-left : 15px;
+			padding-right : 15px;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			border: solid 1px #949494;
+			border-radius: 0px;
+		}
+
+		.mat-form-field-infix {
+    		padding: 0px !important;
+    		border: none;
+    		padding-top: 12px !important;
+    		padding-bottom: 12px !important;
+
+		}
+
+		input{
+			font-size: 1rem;
+
+			&::-webkit-input-placeholder{
+				text-transform : capitalize;
+			}
+			&::-moz-placeholder{
+				text-transform : capitalize;
+			}
+			&:-ms-input-placeholder{
+				text-transform : capitalize;
+			}
+		}
+
+		.mat-form-field-ripple{
+			height : 0px;
+		}
+
+
+		&.mat-focused{
+			.mat-form-field-flex{
+				border: 2px solid map-get($colors,pink);
+				background-color : white;
+			}
+
+		}
+
+		&.mat-form-field-should-float{
+			.mat-form-field-flex{
+				background-color : map-get($colors,white);
+			}
+
+			input{
+				color : black;
+			}
+		}
+
+		&.mat-form-field-invalid{
+			.mat-form-field-ripple{
+				height : 2px;
+				background-color: #d43900;
+			}
+
+			.mat-form-field-subscript-wrapper{
+				padding : 0px;
+			}
+		}
+
+		.mat-error{
+			color : #d43900;
+			font-size: 12px;
+			letter-spacing: 0.5px;
+		}
+	}
+}
+
+button{
+	&:hover{
+		cursor : pointer;
+	}
+}
+
+.primary-btn {
+    border: none !important;
+    min-width: 160px;
+    min-height: 60px;
+    width: 100%;
+    background-color: map-get($colors,pink);;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:disabled{
+    	opacity : 0.6;
+    	cursor : not-allowed;
+    }
+}
+
+.secondary-btn {
+    border: none;
+    background-color: map-get($colors,white) !important;
+    font-weight: bold;
+    min-width: 160px;
+    min-height: 60px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.fruit-shop__left{
+	.side-border{
+		border-left: solid 12px orange;
+		border-bottom: solid 12px green;
+		font-size: 40px;
+	}
+
+	
+	
+}
+
+.example-container {
+  height: 400px;
+  overflow: auto;
+  tr.mat-row {
+    height: 35px;
+  }
+  td{
+		padding : 10px !important;
+	}
+
+	img{
+		width : 50px;
+	}
+}
+
+table {
+  width: 100%;
+}
+
+body{
+	font-family : NobelBook;
+}
