@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   	httpHeaders.set("Access-Control-Allow-Origin","*");
   	this.http.get("http://hotellistbackend.herokuapp.com/hotel/list",{headers:httpHeaders}).subscribe(
   	(response)=>{
-  		this.dataSource = response['data'];
+  		this.dataSource = response['answer'];
   	});
   }
 
