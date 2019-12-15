@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
-  	this.http.get("/thought_clan/hotel/list").subscribe(
+  	this.http.get("https://hotellistbackend.herokuapp.com/hotel/list").subscribe(
   	(response)=>{
   		this.dataSource = response['data'];
   	});
