@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,9 @@ export class HomeComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
-  	this.http.get("https://hotellistbackend.herokuapp.com/hotel/list").subscribe(
+  	const httpHeaders = new HttpHeaders();
+  	httpHeaders.set("Access-Control-Allow-Origin","*");
+  	this.http.get("http://hotellistbackend.herokuapp.com/hotel/list",{headers:httpHeaders}).subscribe(
   	(response)=>{
   		this.dataSource = response['data'];
   	});
