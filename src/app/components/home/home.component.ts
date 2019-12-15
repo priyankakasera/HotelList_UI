@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   	const httpHeaders = new HttpHeaders();
   	httpHeaders.set("Access-Control-Allow-Origin","*");
-  	this.http.get("http://hotellistbackend.herokuapp.com/hotel/list",{headers:httpHeaders}).subscribe(
+  	this.http.get("https://hotellistbackend.herokuapp.com/hotel/list",{headers:httpHeaders}).subscribe(
   	(response)=>{
   		this.dataSource = response['answer'];
   	});
