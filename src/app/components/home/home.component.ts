@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-
+import { UtilityService } from 'src/app/services/utility.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,20 +8,10 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-	
-  dataSource=[];
-  displayedColumns: string[] = ['name', 'host_name', 'neighbourhood_group', 'neighbourhood','latitude','longitude','room_type','price'];
-  
 
-  constructor(private http:HttpClient) { }
+  constructor() { }
 
   ngOnInit() {
-
-  	const httpHeaders = new HttpHeaders();
-  	this.http.get("https://hotellistbackend.herokuapp.com/hotel/list").subscribe(
-  	(response)=>{console.log(response);
-  		this.dataSource = response['answer'];
-  	});
   }
 
 }

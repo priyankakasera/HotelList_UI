@@ -4,6 +4,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatTableModule } from '@angular/material/table'; 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [],
@@ -12,13 +13,15 @@ import { MatTableModule } from '@angular/material/table';
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   exports : [
   	MatTabsModule,
   	MatFormFieldModule,
   	MatInputModule,
-  	MatTableModule
+  	MatTableModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

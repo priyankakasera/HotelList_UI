@@ -18,7 +18,7 @@ export class CommonTextfieldComponent implements OnInit {
 
   // required
   @Input() control_name;
-  @Input() parent_FG: FormGroup;
+  @Input() parent_FG;
 
   // emitters
   @Output() onCTA: EventEmitter<any> = new EventEmitter();
@@ -30,8 +30,7 @@ export class CommonTextfieldComponent implements OnInit {
   	this.control = this.parent_FG.get(this.control_name);
     this.control.valueChanges.subscribe(
       (data) => {
-        console.log(data);
-        console.log(this.control);
+        console.log(this.parent_FG);
       }
     );
   }

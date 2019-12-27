@@ -1,0 +1,21 @@
+
+<div class="d-flex align-items-center justify-content-center row no-gutters pl-2 pr-2">
+	<div class="col-12 col-md-8">
+	<form [formGroup]="addForm" (ngSubmit)="addData()">
+		<app-common-textfield [parent_FG]="addForm" placeholder="Name" control_name="name" label="Name"></app-common-textfield>
+		<app-common-textfield [parent_FG]="addForm" placeholder="Host Name" control_name="host_name" label="Host Name"></app-common-textfield>
+		<app-common-textfield [parent_FG]="addForm" placeholder="Neighbourhood Group" control_name="neighbourhood_group" label="Neighbourhood Group"></app-common-textfield>
+		<app-common-textfield [parent_FG]="addForm" placeholder="Neighbourhood" control_name="neighbourhood" label="Neighbourhood"></app-common-textfield>
+		<app-common-textfield [parent_FG]="addForm" placeholder="Latitude" control_name="latitude" label="Latitude"></app-common-textfield>
+		<app-common-textfield [parent_FG]="addForm" placeholder="Longitude" control_name="longitude" label="Longitude"></app-common-textfield>
+		<app-common-textfield [parent_FG]="addForm" placeholder="Room Type" control_name="room_type" label="Room Type"></app-common-textfield>
+		<app-common-textfield [parent_FG]="addForm" placeholder="Price" control_name="price" label="Price"></app-common-textfield>
+
+		<div class="d-flex align-items-center flex-column-reverse flex-md-row pt-3 mt-2 pb-4">
+			<button type="button" class="secondary-btn" (click)="navigateToHome()">Cancel</button>
+			<button type="submit" class="primary-btn" [disabled]="!addForm.valid">Log In</button>
+		</div>
+		
+	</form>
+	</div>
+</div>
