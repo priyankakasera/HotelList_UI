@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 import { finalize } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 @Injectable({
@@ -17,13 +17,13 @@ export class UtilityService {
   public is_loading = new Subject<any>();;
   constructor(private http : HttpClient) { }
 
-  getMethod(url:any){
-  	 let timeoutId = setTimeout(() => {
-  	 		this.loader_counter++
+  getMethod(url:any,queryParams?){
+  	 
+      let timeoutId = setTimeout(() => {
+        this.loader_counter++
             this.display_loading.next(true);
       }, 1000);
-  	
-  	return this.http.get(url).pipe(
+  		return this.http.get(url).pipe(
   			finalize(()=>{
   				clearTimeout(timeoutId);
   				 if (this.loader_counter > 0) {
@@ -31,8 +31,9 @@ export class UtilityService {
                   }
   				this.display_loading.next(false);
   		})
-  	)
-   }
+  	 )
+  	
+  }
 
    getLoaderCounter(){
    	return this.loader_counter
@@ -43,6 +44,18 @@ export class UtilityService {
    }
 
   postMethod(url,request){
-  	return this.http.post(url,request)
+    let timeoutId = setTimeout(() => {
+        this.loader_counter++
+            this.display_loading.next(true);
+      }, 1000);
+  	return this.http.post(url,request).pipe(
+        finalize(()=>{
+          clearTimeout(timeoutId);
+           if (this.loader_counter > 0) {
+                        this.loader_counter--;
+                  }
+          this.display_loading.next(false);
+      })
+     )
   }
 }

@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   	this.utility_service.display_loading.subscribe(
   		(status)=>{
   			if (!!status && !this.is_loading) {
-          setTimeout(() => {
+          	setTimeout(() => {
             if (this.utility_service.getLoaderCounter() > 0) {
               this.is_loading = status;
             }

@@ -1,11 +1,30 @@
 import {
     FormGroup,
     FormControl,
-    AbstractControl
+    AbstractControl,
+    AsyncValidator,ValidationErrors,AsyncValidatorFn
 } from '@angular/forms';
+
 import {
     UtilityService
 } from '../services/utility.service';
+import { map} from 'rxjs/operators';
+import {Observable } from 'rxjs';
+
+ export function validateUser(utility_service: UtilityService): AsyncValidatorFn{
+        return (control: FormControl): Promise<ValidationErrors|null>|Observable<ValidationErrors|null> => {
+            let queryParams = {
+                'id':control.value
+            }
+            return utility_service.getMethod("http://localhost:8080/thought_clan/hotel/validateUser",{queryParams:queryParams}).pipe(
+                map(users=>{
+                    return users && users['length'] >0 ?{'message':'Already exists'}:null;
+                    }
+                )
+                
+            );
+        }
+    }
 
 export class CustomValidators {
 
@@ -61,4 +80,6 @@ export class CustomValidators {
     		return null;
     	}
     }
+
+    
  }

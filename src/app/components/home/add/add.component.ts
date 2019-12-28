@@ -3,6 +3,7 @@ import { FormControl,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/services/utility.service';
 import { CustomValidators } from 'src/app/validators/validators';
+import { validateUser } from 'src/app/validators/validators';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -40,7 +41,7 @@ export class AddComponent implements OnInit {
   	}
   	this.utility_service.postMethod(this.utility_service.urls.add_url,request).subscribe(
   		(data)=>{
-  			console.log(data)
+  			window.alert("Inserted Successfully")
   		}
   	)
 
