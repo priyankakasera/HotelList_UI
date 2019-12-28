@@ -23,7 +23,7 @@
 				<mat-error *ngIf="control.hasError('required')">
 					{{ required_error ? required_error : 'This field cannot be left blank' }}
 				</mat-error>
-				<mat-error *ngIf="control.hasError('message')">
+				<mat-error *ngIf="control.hasError('message') && !control.hasError('required')">
 					 {{ control.getError('message') }}
 				</mat-error>
 			
