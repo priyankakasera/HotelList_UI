@@ -25,13 +25,21 @@ export class UtilityService {
   	
   	return this.http.get(url).pipe(
   			finalize(()=>{
-  				clearTimeout(timeoutId)
+  				clearTimeout(timeoutId);
   				 if (this.loader_counter > 0) {
                         this.loader_counter--;
                   }
   				this.display_loading.next(false);
   		})
   	)
+   }
+
+   getLoaderCounter(){
+   	return this.loader_counter
+   }
+
+   setLoaderCounter(loader_counter){
+   	this.loader_counter = loader_counter
    }
 
   postMethod(url,request){
