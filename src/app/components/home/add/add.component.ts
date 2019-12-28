@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/services/utility.service';
+import { CustomValidators } from 'src/app/validators/validators';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -14,14 +15,14 @@ export class AddComponent implements OnInit {
 
   ngOnInit() {
   	this.addForm = new FormGroup({
-  		'name' : new FormControl('',Validators.required),
-  		'host_name' : new FormControl('',Validators.required),
-  		'neighbourhood_group' : new FormControl('',Validators.required),
-  		'neighbourhood' : new FormControl('',Validators.required),
-  		'latitude' : new FormControl('',Validators.required),
-  		'longitude' : new FormControl('',Validators.required),
-  		'room_type': new FormControl('',Validators.required),
-  		'price': new FormControl('',Validators.required)
+  		'name' : new FormControl('',[Validators.required,CustomValidators.validateAlphabets()]),
+  		'host_name' : new FormControl('',[Validators.required,CustomValidators.validateAlphabets()]),
+  		'neighbourhood_group' : new FormControl('',[Validators.required,CustomValidators.validateAlphabets()]),
+  		'neighbourhood' : new FormControl('',[Validators.required,CustomValidators.validateAlphabets()]),
+  		'latitude' : new FormControl('',[Validators.required,CustomValidators.validateDecimal()]),
+  		'longitude' : new FormControl('',[Validators.required,CustomValidators.validateDecimal()]),
+  		'room_type': new FormControl('',[Validators.required,CustomValidators.validateAplhaAndSpecialChars()]),
+  		'price': new FormControl('',[Validators.required,CustomValidators.validateNumbers()])
   	});
   }
 

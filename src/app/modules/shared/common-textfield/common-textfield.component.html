@@ -20,12 +20,13 @@
 			[type]="type && hide ? type : 'text'"
 			required>
 			
-			<!-- <mat-error *ngIf="control.hasError('required')">
-				{{ required_error ? required_error : 'This field cannot be left blank' }}
-			</mat-error>
-			<mat-error *ngIf="control.hasError('message')">
-				 ERROR
-			</mat-error> -->
+				<mat-error *ngIf="control.hasError('required')">
+					{{ required_error ? required_error : 'This field cannot be left blank' }}
+				</mat-error>
+				<mat-error *ngIf="control.hasError('message')">
+					 {{ control.getError('message') }}
+				</mat-error>
+			
 		</mat-form-field>
 	</div>
 </div>

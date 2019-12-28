@@ -1,0 +1,16 @@
+@import '~@angular/material/theming';
+
+// Define a custom typography config that overrides the font-family
+$primary-typography: mat-typography-config(
+  $font-family: inherit
+);
+@include mat-core($primary-typography);
+
+// mat-palette accepts $palette-name, main, lighter and darker variants
+$primary-app-primary: mat-palette($mat-red,A700,A100,A700);
+$primary-app-accent:  mat-palette($mat-red,A700,A700,A700);
+$primary-app-warn:    mat-palette($mat-red);
+
+$primary-app-theme: mat-light-theme($primary-app-primary, $primary-app-accent, $primary-app-warn);
+@include angular-material-theme($primary-app-theme);
+

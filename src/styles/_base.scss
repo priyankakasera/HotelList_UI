@@ -106,6 +106,10 @@
 
 		}
 
+		.mat-form-field-underline{
+			position : unset
+		}
+
 		input{
 			font-size: 1rem;
 
@@ -152,6 +156,8 @@
 			.mat-form-field-subscript-wrapper{
 				padding : 0px;
 			}
+
+			
 		}
 
 		.mat-error{
@@ -280,4 +286,10 @@ button{
 
 .display-container{
 	border-top : 1px solid black
+}
+
+.mat-header-row{
+	th{
+		font-size : 18px
+	}
 }

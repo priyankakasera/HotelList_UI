@@ -6,10 +6,11 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class UtilityService {
-  
+  loader_counter = 0
+  display_loading = new Subject<any>();
   urls = {
   	'display_url': 'https://hotellistbackend.herokuapp.com/hotel/list',
-  	'add_url': 'http://localhost:8080/thought_clan/hotel/add'
+  	'add_url': 'https://hotellistbackend.herokuapp.com/hotel/add'
   };
 
 
@@ -17,8 +18,21 @@ export class UtilityService {
   constructor(private http : HttpClient) { }
 
   getMethod(url:any){
-  	return this.http.get(url)
-  }
+  	 let timeoutId = setTimeout(() => {
+  	 		this.loader_counter++
+            this.display_loading.next(true);
+      }, 1000);
+  	
+  	return this.http.get(url).pipe(
+  			finalize(()=>{
+  				clearTimeout(timeoutId)
+  				 if (this.loader_counter > 0) {
+                        this.loader_counter--;
+                  }
+  				this.display_loading.next(false);
+  		})
+  	)
+   }
 
   postMethod(url,request){
   	return this.http.post(url,request)
