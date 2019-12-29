@@ -45,7 +45,7 @@ export class AddComponent implements OnInit {
   		(data)=>{
         if(data['answer'].status===200){
   			 this.openSnackBar("Inserted successfully","Done")
-         this.addForm.reset()
+         this.router.navigate(['/home/list'])
         }
         else if(data['answer'].status===400)
           this.openSnackBar(data['answer'].message,"")
