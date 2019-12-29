@@ -44,8 +44,8 @@ export class AddComponent implements OnInit {
   	this.utility_service.postMethod(this.utility_service.urls.add_url,request).subscribe(
   		(data)=>{
         if(data['answer'].status===200){
-  			 this.openSnackBar("Inserted successfully","Done")
-         this.router.navigate(['/home/list'])
+  			 this.openSnackBar("Inserted successfully","View Your data in the list")
+         this.router.navigate(['/home/display'])
         }
         else if(data['answer'].status===400)
           this.openSnackBar(data['answer'].message,"")
@@ -60,7 +60,7 @@ export class AddComponent implements OnInit {
 
   openSnackBar(message: string, action) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 5000,
     });
   }
 
