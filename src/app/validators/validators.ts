@@ -45,8 +45,8 @@ export class CustomValidators {
     static validateAplhaAndSpecialChars(){
     	return (control: FormControl) => {
     		let number = control.value.trim();
-    		let regex = /^[ A-Za-z0-9_@./#&+-]*$/;
-    		if(number!==null && !regex.test(number)){
+    		let regex = /^[ A-Za-z_@./#&+-]*$/;
+    		if(!regex.test(number)){
     			return {
     				'message' : 'This field should contain alphabets'
     			}

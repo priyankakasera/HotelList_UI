@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/services/utility.service';
 import { CustomValidators } from 'src/app/validators/validators';
 import { validateUser } from 'src/app/validators/validators';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -12,7 +14,7 @@ import { validateUser } from 'src/app/validators/validators';
 export class AddComponent implements OnInit {
 
   addForm : FormGroup;
-  constructor(private router : Router,private utility_service:UtilityService) { }
+  constructor(private router : Router,private utility_service:UtilityService,private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   	this.addForm = new FormGroup({
@@ -41,14 +43,25 @@ export class AddComponent implements OnInit {
   	}
   	this.utility_service.postMethod(this.utility_service.urls.add_url,request).subscribe(
   		(data)=>{
-  			window.alert("Inserted Successfully")
+        if(data['answer'].status===200){
+  			 this.openSnackBar("Inserted successfully","Done")
+         this.addForm.reset()
+        }
+        else if(data['answer'].status===400)
+          this.openSnackBar(data['answer'].message,"")
   		}
   	)
 
   }
 
   navigateToHome(){
+    this.router.navigate(['/home'])
+  }
 
+  openSnackBar(message: string, action) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
 }
