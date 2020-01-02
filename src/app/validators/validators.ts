@@ -18,6 +18,7 @@ import {Observable } from 'rxjs';
             }
             return utility_service.getMethod("http://localhost:8080/thought_clan/hotel/validateUser",{queryParams:queryParams}).pipe(
                 map(users=>{
+                    console.log(users)
                     return users && users['length'] >0 ?{'message':'Already exists'}:null;
                     }
                 )

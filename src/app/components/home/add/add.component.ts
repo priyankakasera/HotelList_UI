@@ -43,12 +43,15 @@ export class AddComponent implements OnInit {
   	}
   	this.utility_service.postMethod(this.utility_service.urls.add_url,request).subscribe(
   		(data)=>{
+        console.log(data)
         if(data['answer'].status===200){
   			 this.openSnackBar("Inserted successfully","View Your data in the list")
          this.router.navigate(['/home/display'])
         }
-        else if(data['answer'].status===400)
-          this.openSnackBar(data['answer'].message,"")
+        else if(data['answer'].status===409)
+          this.openSnackBar(data['answer'].message,"Please enter a valid id")
+
+        this.addForm.reset()
   		}
   	)
 
@@ -60,7 +63,7 @@ export class AddComponent implements OnInit {
 
   openSnackBar(message: string, action) {
     this._snackBar.open(message, action, {
-      duration: 5000,
+      duration: 8000,
     });
   }
 
