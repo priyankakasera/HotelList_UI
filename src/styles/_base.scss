@@ -285,7 +285,56 @@ button{
 }
 
 .display-container{
-	border-top : 1px solid black
+	border-top : 1px solid black;
+	width : 100vw;
+
+	
+		@include media-breakpoint-down(md){
+			table{
+				&.mat-table{
+					table-layout  : fixed
+				}
+			}
+			th{
+				font-size : 10px !important;
+				padding-right: 10px !important;
+			}
+
+			th{
+				&:nth-child(1){
+					padding-left: 5px !important;
+				}
+				
+				&:nth-child(3){
+					word-wrap: break-word;
+				}
+				&:nth-child(4){
+					word-break: break-all;
+				}
+				&:nth-child(5){
+					word-break: break-word;
+				}
+				
+
+			}
+			
+	}
+
+	
+		@include media-breakpoint-down(md){
+		td{
+			font-size: 9px !important;
+			padding-right: 10px !important;
+			word-wrap: break-word;
+			&:nth-child(1){
+					width: 60px;
+					padding-left: 5px !important;
+				}
+		}
+			
+		
+	}
+
 }
 
 .mat-header-row{
