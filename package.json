@@ -33,7 +33,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^1.12.4",
     "ng-multiselect-dropdown": "^0.2.3",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "popper.js": "^1.15.0",
     "primeicons": "^2.0.0",
     "primeng": "^8.0.2",
